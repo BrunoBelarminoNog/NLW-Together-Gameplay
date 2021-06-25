@@ -6,9 +6,15 @@ import { ButtonIcon } from "../../components/ButtonIcon";
 
 import { styled } from "./styles";
 import IllustrationImg from "../../assets/illustration.png";
+import { useNavigation } from "@react-navigation/native";
 
 export default function SignIn() {
   const [text, setText] = useState("");
+  const navigation = useNavigation();
+
+  const handleSignIn = () => {
+    navigation.navigate("Home");
+  };
 
   return (
     <View style={styled.container}>
@@ -26,7 +32,11 @@ export default function SignIn() {
           favoritos com seus amigos
         </Text>
 
-        <ButtonIcon title="Entrar com Discord" activeOpacity={0.7} />
+        <ButtonIcon
+          title="Entrar com Discord"
+          activeOpacity={0.7}
+          onPress={handleSignIn}
+        />
       </View>
     </View>
   );
